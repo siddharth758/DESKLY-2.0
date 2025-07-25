@@ -1,0 +1,188 @@
+.task-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-left: 60px;
+}
+
+.task-wrapper {
+  position: relative;
+  margin-left: 20px;
+  z-index: 2;
+}
+
+.todo-box {
+  width: 290px;
+  border: 2px solid black;
+  padding: 12px;
+  font-family: sans-serif;
+  border-radius: 8px;
+  background-color: #e5e5e5;
+}
+
+.todo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.todo-header-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid transparent;
+  padding: 2px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.todo-header-left:hover {
+  border: 1px solid black;
+}
+
+.todo-header-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.task-card {
+  background-color: #ff7f7f;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  border: 1px solid gray;
+}
+
+.task-title {
+  margin: 0 0 8px 0;
+  font-weight: 500;
+}
+
+.task-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.task-priority {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid black;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background-color: white;
+}
+
+.add-task-btn {
+  position: fixed;
+  border: 2px solid black;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 15px;
+  transition: 0.2s;
+  margin-bottom: 10px;
+  font-weight: 600;
+  z-index: 1000;
+  cursor: pointer;
+}
+.add-task-btn:hover {
+  border-radius: 10px;
+}
+
+.add-task-bar {
+  margin-bottom: 40px;
+}
+
+.priority-select {
+  font-size: 15px;
+  border: none;
+  outline: none;
+  background-color: white;
+}
+.priority-select option {
+  background-color: white;
+  color: black;
+  font-size: 12px;
+  padding: 5px;
+}
+
+.popup-overlay {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  z-index: 999;
+}
+
+.popup-header-left {
+  display: flex;
+  justify-content: left;
+  gap: 6px;
+}
+
+.popup-box {
+  background: white;
+  border: 1px solid black;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.popup-box-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.confirm-btn {
+  margin-top: 15px;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+.dropdown {
+  position: relative;
+  width: 140px;
+}
+
+.dropdown-toggle {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 14px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.arrow {
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  border: 1px solid #ccc;
+  background: white;
+  z-index: 10;
+  border-radius: 6px;
+  margin-top: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f0f0;
+}

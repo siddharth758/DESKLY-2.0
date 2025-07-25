@@ -1,0 +1,51 @@
+.folder-separataion ul {
+  padding-left: 150px;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  font-weight: 600;
+}
+.folder-border-line {
+  height: 2px;
+  border-bottom: 2px solid black;
+  width: 1360px;
+  margin-left: 143px;
+}
+.file-list ul {
+  padding-left: 142px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 1370px;
+}
+.file-list ul li {
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.2s ease;
+}
+.fixed-li ul {
+  padding-left: 155px;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: 400px;
+  font-weight: 550;
+  align-items: center;
+}
+.file-icons {
+  display: flex;
+  gap: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.file-list ul li:hover .file-icons {
+  opacity: 1;
+  pointer-events: auto;
+}

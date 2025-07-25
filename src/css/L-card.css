@@ -1,0 +1,102 @@
+.setup-container {
+  max-width: 300px;
+  max-height: 500px;
+  margin: auto;
+  padding: 2rem;
+  text-align: center;
+  font-family: sans-serif;
+  background: #e5e5e5;
+  border-radius: 15px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+.feature-wrapper {
+  max-width: 400px;
+  background: transparent; /* White outline */
+  padding: 15px; /* Space around the inner box */
+  border-radius: 15px; /* Round outer corners */
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 15px;
+}
+.feature-box {
+  width: auto;
+  padding-top: 60px;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  position: relative;
+  border: 1px solid #5d5c5c;
+  box-shadow: 2 2px 6px rgba(0, 0, 0, 0.05);
+}
+.start-button {
+  background: #7c3aed;
+  /* background: linear-gradient(to right, #5a67d8, #9f7aea); */
+  color: white;
+  padding: 0.8rem 6rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.start-button:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+.move-me {
+  position: relative;
+  left: 100px; /* Move entire card to the right */
+  top: 50px; /* Move entire card down */
+}
+.card-stack {
+  position: relative;
+}
+.card {
+  position: absolute;
+}
+.card-1 {
+  transform: rotate(0deg) translateX(200px) scale(0.8);
+  filter: blur(1px);
+  opacity: 0.9;
+}
+.card-2 {
+  transform: rotate(0deg) translateX(-100px) scale(0.8);
+  filter: blur(1px);
+  opacity: 0.9;
+}
+.card-3 {
+  transform: rotate(0deg) translateX(18px);
+}
+.floating-light {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, #6ee7f7 0%, transparent 70%);
+  top: 25%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  filter: blur(120px);
+  opacity: 0.15;
+  animation: pulseLight 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes pulseLight {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.15;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.25;
+  }
+}

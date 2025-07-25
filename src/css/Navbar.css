@@ -1,0 +1,31 @@
+.navbar-wrapper {
+  position: fixed;
+  top: 30px;
+  left: 130px;
+  width: calc(100% - 280px);
+  display: flex;
+  justify-content: center;
+  z-index: 999;
+}
+
+.navbar {
+  display: flex;
+  background: rgba(229, 229, 229, 0.4); /* light semi-transparent */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid whitesmoke;
+  box-shadow: 10px 10px 20px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  padding: 5px 16px;
+  color: #1f1f1f; /* dark text for light background */
+  width: 100%;
+  max-width: 810px;
+  transition: background 0.3s ease;
+}
+
+.navbar-options {
+  display: flex;
+  list-style: none;
+  gap: 10px;
+  font-weight: 400;
+}

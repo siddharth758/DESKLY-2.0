@@ -1,0 +1,86 @@
+.task-container {
+  position: fixed;
+  z-index: 1000;
+}
+.task-both-list {
+  /* display: flex; */
+  margin-left: 50px;
+}
+
+.task-list {
+  position: fixed;
+  background-color: #e5e5e5;
+  z-index: 2;
+}
+.task-list ul {
+  z-index: 2;
+  position: relative;
+  margin: 0px 0px 0px 0px;
+  padding: 10px 0px 10px 10px;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: 60px;
+  border: 1px solid black;
+  width: 1400px;
+  cursor: pointer;
+}
+.task-list li {
+  display: flex;
+  align-items: center;
+}
+.task-list-names {
+  position: relative;
+}
+.task-list-names ul {
+  z-index: 1;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  margin: 0px 0px 0px 0px;
+  padding: 10px 0px 10px 10px;
+  list-style: none;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  width: 1400px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  top: 45px;
+  opacity: 1;
+  transition: 0.3s;
+  cursor: pointer;
+  background-color: #e5e5e5;
+}
+.task-list-names li {
+  display: flex;
+  align-items: center;
+}
+.task-list-names ul.close {
+  top: 20px;
+}
+.task-list .search {
+  position: absolute;
+  right: 310px;
+}
+.task-list .filter {
+  position: absolute;
+  right: 200px;
+}
+.task-list .wrench {
+  position: absolute;
+  right: 95px;
+}
+.task-list-names .searcher {
+  position: absolute;
+  right: 295px;
+}
+.task-list-names .filterer {
+  position: absolute;
+  right: 195px;
+}
+.task-list-names .wrencher {
+  position: absolute;
+  right: 70px;
+}

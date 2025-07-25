@@ -1,0 +1,7 @@
+.board-outlet {
+  height: calc(100vh - 100px);
+  padding-top: 90px;
+  padding-left: 50px;
+  overflow-y: auto;
+  scrollbar-width: none;
+}

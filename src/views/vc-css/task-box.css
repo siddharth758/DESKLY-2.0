@@ -1,0 +1,9 @@
+.task-box {
+  width: 200px;
+  height: 100px;
+  background-color: aqua;
+}
+.task-box-container {
+  margin-top: 50px;
+  margin-left: 50px;
+}

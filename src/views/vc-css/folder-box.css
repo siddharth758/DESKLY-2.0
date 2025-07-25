@@ -1,0 +1,66 @@
+.uploaded-folders {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  height: 150px;
+  background-color: #e5e5e5;
+  border: 1px solid black;
+  border-radius: 10px;
+  /* transition: transform 0.2s ease, box-shadow 0.2s ease; */
+}
+
+.uploaded-folders:hover {
+  /* transform: scale(1.03);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); */
+}
+.uploaded-folders h1 {
+  display: flex;
+  font-size: 15px;
+}
+.uploaded-folders-div {
+  position: relative;
+  margin: 10px;
+}
+.recent-folders {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  height: 150px;
+  background-color: #e5e5e5;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+.recent-folders h1 {
+  display: flex;
+  font-size: 15px;
+}
+.recent-folders-div {
+  position: relative;
+  margin: 10px;
+}
+.create-folders {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  height: 150px;
+  background-color: #e5e5e5;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+.create-folders h1 {
+  display: flex;
+  font-size: 15px;
+}
+.create-folders-div {
+  position: relative;
+  margin: 10px;
+}
+.folders-boxes {
+  display: flex;
+}

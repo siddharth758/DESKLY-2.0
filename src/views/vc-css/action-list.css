@@ -1,0 +1,35 @@
+.action-list ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  height: 10px;
+  padding-left: 10px;
+}
+.action-list ul li {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.action-list {
+  position: relative;
+  align-items: center;
+  border: 1px solid black;
+}
+.action-list-border {
+  position: relative;
+  border: 1px solid black;
+  padding: 2px;
+}
+.action-list ul li::after {
+  content: "";
+  position: absolute;
+  left: 30px;
+  height: 42px;
+  width: 1px;
+  background-color: black;
+}
+.action-list-container {
+  margin: 0px;
+  padding: 0px;
+}

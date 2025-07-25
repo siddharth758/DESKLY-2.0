@@ -1,0 +1,40 @@
+.map-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+  border: 1px solid black;
+  padding: 20px;
+  border-radius: 10px;
+}
+.map-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 2px solid gray;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #e5e5e5;
+  transition: 0.1s ease;
+}
+
+.map-card:hover {
+  background-color: #ccc;
+  border: 2px solid black;
+}
+.name-desc {
+  padding-left: 30px;
+}
+.name-desc h4 {
+  margin: 0px;
+  padding: 0px;
+  padding-bottom: 10px;
+}
+.name-desc p {
+  margin: 0px;
+  padding: 0px;
+  font-size: 12px;
+}
+.icons {
+  stroke-width: 1.5;
+}

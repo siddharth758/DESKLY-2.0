@@ -1,0 +1,26 @@
+.adjust-image {
+  width: 1000px;
+  height: auto;
+  filter: blur(1.75px);
+  border-radius: 10px; /* optional */
+}
+.image-div {
+  display: inline-block;
+  margin-top: 100px;
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 10px;
+}
+.image-div-center {
+  display: flex;
+  justify-content: center;
+  /* opacity: 1;
+  transform: translatey(150px);
+  animation: fadeInUp 1s ease-out forwards; */
+}
+/* @keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translatey(0);
+  }
+} */
