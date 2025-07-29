@@ -3,9 +3,8 @@
   flex-direction: row;
   gap: 20px;
   align-items: center;
-  border: 1px solid black;
-  padding: 20px;
-  border-radius: 10px;
+  margin: 0px;
+  padding: 0px;
 }
 .map-card {
   display: flex;
@@ -15,11 +14,11 @@
   padding: 10px;
   border-radius: 10px;
   background-color: #e5e5e5;
-  transition: 0.1s ease;
+  transition: 0.3s ease;
 }
 
 .map-card:hover {
-  background-color: #ccc;
+  background-color: #e6e6e6;
   border: 2px solid black;
 }
 .name-desc {
@@ -37,4 +36,185 @@
 }
 .icons {
   stroke-width: 1.5;
+}
+.heading-map {
+  margin: 0px;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-left: 10px;
+}
+.heading-map h4 {
+  margin: 0px;
+  padding-bottom: 10px;
+}
+.star-maps-container {
+  margin-top: 10px;
+  margin-left: 10px;
+  border: 1px solid black;
+  min-width: 325px;
+  padding: 20px;
+  border-radius: 10px;
+}
+.star-maps-div ul {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.star-maps-div li {
+  border: 1px solid black;
+  padding: 15px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+.star-maps-heading h4 {
+  margin: 0px;
+  padding-bottom: 10px;
+}
+.insights-container {
+  border: 1px solid black;
+  width: 250px;
+  margin-top: 10px;
+  margin-left: 10px;
+  padding: 10px;
+  border-radius: 10px;
+}
+.insights-container h3 {
+  margin: 0px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+.insights-parts {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  border-bottom: 1px solid gray;
+}
+
+.insights-parts p {
+  margin: 0px;
+  padding: 0px;
+  font-size: medium;
+  font-weight: 500;
+  padding-bottom: 3px;
+}
+.insights-parts .counts {
+  font-weight: 600;
+}
+.insights-div {
+  padding: 10px;
+}
+.middle-map-section {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.Create-map-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
+  margin-left: 10px;
+  gap: 20px;
+}
+.recents-map-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid black;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  border-radius: 10px;
+  gap: 10px;
+}
+.recents-map-div h3 {
+  margin: 0px;
+  padding: 0px;
+}
+.create-map-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid black;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  border-radius: 10px;
+  gap: 10px;
+}
+.create-map-div h3 {
+  margin: 0px;
+  padding: 0px;
+}
+.pomodro-recent-container {
+  display: flex;
+  flex-direction: row;
+}
+.last-section {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.Notes-container {
+  background-color: #e5e5e5;
+  padding: 10px;
+  width: fit-content;
+  border: 1px solid black;
+  border-radius: 6px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.Notes-part h3 {
+  margin: 0px;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.Notes-textarea {
+  width: 250px;
+  position: relative;
+}
+
+.textArea {
+  width: 100%;
+  min-height: 170px;
+  max-height: 400px;
+  resize: none;
+  overflow-y: auto;
+  border: none;
+  outline: none;
+  padding: 8px;
+  font-size: 14px;
+  background-color: white;
+  box-sizing: border-box;
+  border-radius: 10px;
+  line-height: 1.4;
+  border: 1px solid black;
+}
+
+/* Auto-grow effect */
+.textArea:focus {
+  height: auto;
+}
+
+/* Firefox Scrollbar */
+.textArea {
+  scrollbar-width: thin;
+  scrollbar-color: #999 #f1f1f1;
+}
+.notes-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
