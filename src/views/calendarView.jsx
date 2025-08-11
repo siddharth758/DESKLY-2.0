@@ -4,7 +4,7 @@ import "../views/vc-css/CalendarView.css";
 function CalendarView() {
   return (
     <>
-      <div className="calendar-section">
+      <div>
         <CalendarSection />
       </div>
     </>
