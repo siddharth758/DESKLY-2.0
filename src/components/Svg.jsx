@@ -19,7 +19,7 @@ const SketchBox = () => {
 
       <path
         d="M22 34L28 40L42 26"
-        stroke="#4CAF50"
+        stroke="#000"
         stroke-width="3"
         stroke-linecap="round"
         stroke-linejoin="round"
@@ -34,8 +34,8 @@ const SketchBox = () => {
         width="6"
         height="6"
         rx="1"
-        fill="#b6fcb6"
-        stroke="#4CAF50"
+        fill="gray"
+        stroke="#000"
         stroke-width="1"
       />
     </svg>

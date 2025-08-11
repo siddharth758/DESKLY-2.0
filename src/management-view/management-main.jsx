@@ -49,11 +49,6 @@ function ManagementMain() {
           ))}
         </div>
       </div>
-      {/* <div className="folders-boxes">
-        <FileItem title="Recent Folders" Icon={Clock} />
-        <FileItem title="Create Map" Icon={PlusCircle} />
-      </div> */}
-
       <div className="Create-map-container">
         <div className="recents-map-div">
           <Clock size={30} />
