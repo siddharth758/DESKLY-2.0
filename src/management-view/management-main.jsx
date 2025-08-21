@@ -59,45 +59,50 @@ function ManagementMain() {
           <h3>Create Map</h3>
         </div>
       </div>
-      <div className="middle-map-section">
-        <div className="star-maps-container">
-          <div className="star-maps-heading">
-            <h4>Starred Maps</h4>
+      <div className="all-section">
+        <div className="middle-map-section">
+          <div className="star-maps-container">
+            <div className="star-maps-heading">
+              <h4>Starred Maps</h4>
+            </div>
+            <div className="star-maps-div">
+              <ul>
+                {["Project Alpha", "Marketing Plan", "Product Launch"].map(
+                  (starredSkeloton, Index) => (
+                    <li key={Index}>{starredSkeloton}</li>
+                  )
+                )}
+              </ul>
+            </div>
           </div>
-          <div className="star-maps-div">
-            <ul>
-              {["Project Alpha", "Marketing Plan", "Product Launch"].map(
-                (starredSkeloton, Index) => (
-                  <li key={Index}>{starredSkeloton}</li>
-                )
-              )}
-            </ul>
-          </div>
-        </div>
 
-        <div className="insights-container">
-          <h3>Insights</h3>
-          <div className="insights-div">
-            {[
-              { tasks: "Total Tasks", counts: "0" },
-              { tasks: "Completed Tasks", counts: "0%" },
-              { tasks: "Maps Created", counts: "0" },
-              { tasks: "Active Maps", counts: "0" },
-            ].map((insights, Inbox) => (
-              <div key={Inbox} className="insights-parts">
-                <p>{insights.tasks}</p>
-                <p className="counts">{insights.counts}</p>
-              </div>
-            ))}
+          <div className="pomodro-recent-container">
+            <Pomodro />
           </div>
         </div>
-      </div>
-      <div className="last-section">
-        <div className="pomodro-recent-container">
-          <Pomodro />
+        <div className="last-section">
+          <div className="insights-container">
+            <h3>Insights</h3>
+            <div className="insights-div">
+              {[
+                { tasks: "Total Tasks", counts: "0" },
+                { tasks: "Completed Tasks", counts: "0%" },
+                { tasks: "Maps Created", counts: "0" },
+                { tasks: "Active Maps", counts: "0" },
+              ].map((insights, Inbox) => (
+                <div key={Inbox} className="insights-parts">
+                  <p>{insights.tasks}</p>
+                  <p className="counts">{insights.counts}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div>
+            <Notes />
+          </div>
         </div>
         <div>
-          <Notes />
+          <div className="last-column"></div>
         </div>
       </div>
     </>

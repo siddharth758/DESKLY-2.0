@@ -9,6 +9,7 @@ import CalendarView from "./views/calendarView";
 import FolderView from "./views/folderView";
 import CheckListSection from "./checklist-view/CheckListSection/CheckListSection";
 import ManagementSection from "./management-view/management-section/managementSection";
+// import HomeSection from "./home-view/home-section/homeSection";
 import "./css/App.css";
 
 function App() {

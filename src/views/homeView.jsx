@@ -1,7 +1,11 @@
+import HomeSection from "../home-view/home-section/homeSection";
+import "../home-view/home-css/homeview.css";
 function HomeView() {
   return (
     <>
-      <div></div>
+      <div className="homesection">
+        <HomeSection />
+      </div>
     </>
   );
 }

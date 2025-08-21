@@ -1,0 +1,12 @@
+.scroll-box {
+  width: 350px;
+  height: 200px;
+  border: 1px solid black;
+  overflow-y: auto;
+  border-radius: 8px;
+  margin-top: 10px;
+  padding: 0px;
+  scrollbar-width: thin;
+  scrollbar-color: #888 #e5e5e5;
+  flex-shrink: 0;
+}
