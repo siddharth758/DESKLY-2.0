@@ -1,0 +1,42 @@
+.feature-scroller {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: transparent; /* Tailwind bg-gray-900 */
+  padding: 1rem 0;
+  top: 30px;
+}
+
+.scroll-track {
+  display: flex;
+  gap: 3rem;
+  width: max-content;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: black;
+  font-size: 1.125rem; /* text-lg */
+  font-weight: 500;
+  white-space: nowrap;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(6px);
+  transition: transform 0.3s ease, background 0.3s ease;
+  border: 1px solid black;
+}
+
+.feature-item:hover {
+  transform: scale(1.1);
+  background: rgba(59, 130, 246, 0.2);
+  border: 1px solid #3b82f6;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  color: #333; /* Tailwind blue-400 */
+}

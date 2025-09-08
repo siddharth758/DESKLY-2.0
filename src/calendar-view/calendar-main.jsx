@@ -26,6 +26,7 @@ function CalendarMain() {
   const monthName = monthNames[currentDate.getMonth()];
   const year = currentDate.getFullYear();
   const month = currentDate.getMonth();
+  const today = new Date();
 
   function goToPreviousMonth() {
     setCurrentDate((prev) => new Date(prev.getFullYear(), prev.getMonth() - 1));
@@ -84,13 +85,21 @@ function CalendarMain() {
           </div>
         ))}
 
-        {calendarDays.map((day, index) => (
-          <div
-            key={index}
-            data-day={day !== "" ? day : undefined}
-            className="day"
-          ></div>
-        ))}
+        {calendarDays.map((day, index) => {
+          // Check if this day is today
+          const isToday =
+            day === today.getDate() &&
+            month === today.getMonth() &&
+            year === today.getFullYear();
+
+          return (
+            <div
+              key={index}
+              data-day={day !== "" ? day : undefined}
+              className={`day ${isToday ? "today" : ""}`}
+            ></div>
+          );
+        })}
 
         {/* We will generate empty boxes and real dates here later using logic */}
       </div>

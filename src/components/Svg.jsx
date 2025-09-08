@@ -12,7 +12,7 @@ const SketchBox = () => {
     >
       <path
         d="M10 20C10 17.79 11.79 16 14 16H26L30 20H50C52.21 20 54 21.79 54 24V44C54 46.21 52.21 48 50 48H14C11.79 48 10 46.21 10 44V20Z"
-        stroke="#333"
+        stroke="#3b82f6"
         stroke-width="2"
         fill="#F7F7F7"
       />
@@ -34,7 +34,7 @@ const SketchBox = () => {
         width="6"
         height="6"
         rx="1"
-        fill="gray"
+        fill="#3b82f6"
         stroke="#000"
         stroke-width="1"
       />

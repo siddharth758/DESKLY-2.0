@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap");
 .adjust-image {
   width: 1000px;
   height: auto;
@@ -14,6 +15,7 @@
 .image-div-center {
   display: flex;
   justify-content: center;
+
   /* opacity: 1;
   transform: translatey(150px);
   animation: fadeInUp 1s ease-out forwards; */
@@ -24,3 +26,17 @@
     transform: translatey(0);
   }
 } */
+.trusted {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  padding: 0px;
+}
+.trusted p {
+  margin: 0px;
+  padding: 0px;
+  color: #3b82f6;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: "Caveat", cursive;
+}
