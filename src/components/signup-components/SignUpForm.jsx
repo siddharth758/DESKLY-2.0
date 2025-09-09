@@ -6,7 +6,7 @@ import {
   faApple,
   faMicrosoft,
 } from "@fortawesome/free-brands-svg-icons";
-import "../signup-components/SignUp.css/SignUpForm.css";
+import "../signup-components/SignUp.css/SignUpform.css";
 
 function SignupForm() {
   const navigate = useNavigate();
