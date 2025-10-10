@@ -9,6 +9,12 @@ import CalendarView from "./views/calendarView";
 import FolderView from "./views/folderView";
 import CheckListSection from "./checklist-view/CheckListSection/CheckListSection";
 import ManagementSection from "./management-view/management-section/managementSection";
+import MindMap from "./management-view/management-map/MindMap";
+import GanttChart from "./management-view/management-map/GanttChart";
+import Kanban from "./management-view/management-map/Kanban";
+import RiskMatrix from "./management-view/management-map/RiskMatrix";
+import EisenhowerMatrix from "./management-view/management-map/EisenhowerMatrix";
+import FlowChart from "./management-view/management-map/FLowChart";
 // import HomeSection from "./home-view/home-section/homeSection";
 import "./css/App.css";
 
@@ -23,6 +29,12 @@ function App() {
           <Route path="home" element={<HomeView />} />
           <Route path="management" element={<ManagementView />}>
             <Route index element={<ManagementSection />} />
+            <Route path="mind-map" element={<MindMap />} />
+            <Route path="gantt-chart" element={<GanttChart />} />
+            <Route path="kanban" element={<Kanban />} />
+            <Route path="risk-matrix" element={<RiskMatrix />} />
+            <Route path="eisenhower" element={<EisenhowerMatrix />} />
+            <Route path="flowchart" element={<FlowChart />} />
           </Route>
           <Route path="taskList" element={<TaskListView />}>
             <Route index element={<CheckListSection />} />

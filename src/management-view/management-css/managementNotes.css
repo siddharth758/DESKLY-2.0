@@ -1,0 +1,114 @@
+.Notes-container {
+  background-color: #e5e5e5;
+  padding: 10px;
+  width: fit-content;
+  border: 1px solid black;
+  border-radius: 6px;
+  margin-left: 10px;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+  position: relative; /* keep default relative */
+  z-index: 1;
+}
+
+/* Maximized (floating fullscreen) */
+.Notes-container.maximized {
+  position: fixed; /* float above everything */
+  top: 0;
+  left: 0;
+  width: 98vw; /* full width */
+  height: 100vh; /* full height */
+  margin: 0; /* remove previous margins */
+  border-radius: 0; /* remove rounded corners */
+  padding: 20px;
+  background-color: #e5e5e5; /* optional: lighter bg */
+  z-index: 9999; /* on top of everything */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Optional: textarea grows */
+.Notes-container.maximized .Notes-textarea {
+  width: 1490px;
+  position: relative;
+}
+.Notes-container.maximized .textArea {
+  min-height: 660px;
+  /* max-height: 400px; */
+  background-color: white;
+}
+.Notes-container.maximized .Notes-part h3 {
+  font-size: 18px;
+  padding: 12px;
+}
+
+.Notes-part h3 {
+  margin: 0px;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.Notes-textarea {
+  width: 250px;
+  position: relative;
+}
+
+.textArea {
+  width: 100%;
+  min-height: 170px;
+  resize: none;
+  overflow-y: auto;
+  border: none;
+  outline: none;
+  padding: 8px;
+  font-size: 14px;
+  background-color: white;
+  box-sizing: border-box;
+  border-radius: 10px;
+  line-height: 1.4;
+  border: 1px solid black;
+}
+
+/* Auto-grow effect */
+.textArea:focus {
+  height: auto;
+}
+
+/* Firefox Scrollbar */
+.textArea {
+  scrollbar-width: thin;
+  scrollbar-color: #999 #f1f1f1;
+}
+.notes-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+}
+.all-section {
+  display: flex;
+}
+.last-column {
+  border: 1px solid black;
+  width: 700px;
+  height: 455px;
+  margin-top: 10px;
+  margin-left: 10px;
+  border-radius: 8px;
+}
+.notes-mini-max {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 120px;
+}
+
+.maximize-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 4px;
+}

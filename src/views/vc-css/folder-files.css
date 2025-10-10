@@ -49,3 +49,20 @@
   opacity: 1;
   pointer-events: auto;
 }
+.folder-separataion ul li {
+  cursor: pointer;
+  padding-bottom: 5px;
+  transition: border-color 0.2s ease;
+}
+
+.folder-separataion ul li.active {
+  border-bottom: 3px solid #1e90ff; /* underline effect */
+  color: #3b82f6; /* optional: highlight text */
+}
+.no-files {
+  text-align: center;
+  padding: 15px;
+  color: gray;
+  font-style: italic;
+  border: none !important;
+}

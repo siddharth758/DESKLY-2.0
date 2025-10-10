@@ -1,27 +1,93 @@
 .pomodoro-wrapper {
-  border: 1px solid black;
+  position: relative;
+  border: 2px solid black;
   width: 205px;
-  padding-left: 80px;
-  padding-right: 80px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 20px 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
   border-radius: 10px;
-  margin-left: 10px;
-  margin-top: 10px;
+  margin: 10px;
+  transition: all 0.3s ease;
+  /* background-color: white; */
 }
+
 .pomodoro-wrapper .timer {
   font-size: 40px;
 }
+
 .controls {
   display: flex;
   flex-direction: row;
   gap: 10px;
 }
+
 .controls .btn {
   border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+  border: 2px solid black;
+}
+
+/* Maximize button */
+.maximize-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 4px;
+}
+
+/* Maximized version - keep style same, just scale */
+.pomodoro-wrapper.maximized {
+  position: fixed;
+  top: 48.5%;
+  left: 49.5%;
+  transform: translate(-50%, -50%);
+  width: 1350px; /* bigger, but same look */
+  height: 680px; /* adjusts naturally */
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centers vertically */
+  align-items: center;
+  gap: 30px; /* more spacing between timer and controls */
+}
+
+.pomodoro-wrapper.maximized .timer {
+  font-size: 80px; /* only the timer gets bigger */
+}
+.extra-features {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  display: flex;
+  gap: 30px;
+  border: 2px solid black;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #e5e5e5;
+  z-index: 2;
+}
+.video-mp4 {
+  position: absolute;
+  bottom: 25px;
+  left: 7px;
+  border: 3px solid #e5e5e5;
+  z-index: 1;
+}
+.pomodro-middle-part {
+  /* border: 2px solid black; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  border-radius: 10px;
   background-color: #e5e5e5;
 }

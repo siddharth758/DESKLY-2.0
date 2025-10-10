@@ -63,6 +63,10 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  min-height: 210px;
+  max-height: 210px;
+  overflow-y: auto;
+  scrollbar-width: none;
 }
 .star-maps-div li {
   border: 1px solid black;
@@ -169,69 +173,4 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-}
-.Notes-container {
-  background-color: #e5e5e5;
-  padding: 10px;
-  width: fit-content;
-  border: 1px solid black;
-  border-radius: 6px;
-  margin-left: 10px;
-  margin-top: 10px;
-}
-
-.Notes-part h3 {
-  margin: 0px;
-  padding: 10px;
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.Notes-textarea {
-  width: 250px;
-  position: relative;
-}
-
-.textArea {
-  width: 100%;
-  min-height: 170px;
-  max-height: 400px;
-  resize: none;
-  overflow-y: auto;
-  border: none;
-  outline: none;
-  padding: 8px;
-  font-size: 14px;
-  background-color: white;
-  box-sizing: border-box;
-  border-radius: 10px;
-  line-height: 1.4;
-  border: 1px solid black;
-}
-
-/* Auto-grow effect */
-.textArea:focus {
-  height: auto;
-}
-
-/* Firefox Scrollbar */
-.textArea {
-  scrollbar-width: thin;
-  scrollbar-color: #999 #f1f1f1;
-}
-.notes-div {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-.all-section {
-  display: flex;
-}
-.last-column {
-  border: 1px solid black;
-  width: 700px;
-  height: 455px;
-  margin-top: 10px;
-  margin-left: 10px;
-  border-radius: 8px;
 }

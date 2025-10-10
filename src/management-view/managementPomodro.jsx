@@ -1,10 +1,25 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Play, Pause, RotateCcw } from "lucide-react";
+import {
+  Play,
+  Pause,
+  RotateCcw,
+  Maximize2,
+  Minimize2,
+  Palette,
+  Music,
+  Clock,
+  Loader,
+  Bell,
+} from "lucide-react";
+import { HexColorPicker } from "react-colorful"; // install this: npm install react-colorful
 import "../management-view/management-css/managementPomodro.css";
-
+// import VideoPlayer from "./management-section/pomodroVideo";
 function Pomodro() {
   const [secondsLeft, setSecondsLeft] = useState(25 * 60);
   const [isRunning, setIsRunning] = useState(false);
+  const [isMaximized, setIsMaximized] = useState(false);
+  const [color, setColor] = useState("#e5e5e5");
+  const [showPicker, setShowPicker] = useState(false);
   const timeRef = useRef(null);
 
   useEffect(() => {
@@ -40,8 +55,17 @@ function Pomodro() {
   };
 
   return (
-    <>
-      <div className="pomodoro-wrapper">
+    <div
+      className={`pomodoro-wrapper ${isMaximized ? "maximized" : ""}`}
+      style={{ backgroundColor: color }}
+    >
+      <button
+        className="maximize-btn"
+        onClick={() => setIsMaximized(!isMaximized)}
+      >
+        {isMaximized ? <Minimize2 size={20} /> : <Maximize2 size={20} />}
+      </button>
+      <div className="pomodro-middle-part">
         <div className="timer">{formatTime(secondsLeft)}</div>
 
         <div className="controls">
@@ -53,7 +77,45 @@ function Pomodro() {
           </button>
         </div>
       </div>
-    </>
+
+      {isMaximized && (
+        <div>
+          <div className="extra-features">
+            {/* Palette icon toggles color picker */}
+            <div style={{ position: "relative" }}>
+              <button
+                className="btn"
+                onClick={() => setShowPicker((prev) => !prev)}
+              >
+                <Palette size={28} />
+              </button>
+
+              {showPicker && (
+                <div
+                  style={{
+                    position: "absolute",
+                    bottom: "60px", // 👈 change to move picker
+                    left: "0px",
+                    padding: "10px",
+                    borderRadius: "10px",
+                    boxShadow: "0 4px 10px rgba(0,0,0,0.5)",
+                    zIndex: 100,
+                  }}
+                >
+                  <HexColorPicker onChange={setColor} />
+                </div>
+              )}
+            </div>
+
+            <Music size={28} />
+            <Clock size={28} />
+            <Loader size={28} />
+            <Bell size={28} />
+          </div>
+          <div className="video-mp4">{/* <VideoPlayer /> */}</div>
+        </div>
+      )}
+    </div>
   );
 }
 

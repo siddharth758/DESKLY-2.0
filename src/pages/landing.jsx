@@ -14,17 +14,19 @@ function Landing() {
   return (
     <>
       <IntroAnimation>
-        <LandPage />
-        <Middle />
-        <ScreenShot />
-        <FeatureScroller />
-        <ManagementToolsSection />
-        <div className="boardsss">
-          <SingleChecklistBoard />
-          <SingleSecondChecklistBoard />
+        <div className="landing-background">
+          <LandPage />
+          <Middle />
+          <ScreenShot />
+          <FeatureScroller />
+          <ManagementToolsSection />
+          <div className="boardsss">
+            <SingleChecklistBoard />
+            <SingleSecondChecklistBoard />
+          </div>
+          <AboutSection />
+          <ContactSection />
         </div>
-        <AboutSection />
-        <ContactSection />
       </IntroAnimation>
     </>
   );
