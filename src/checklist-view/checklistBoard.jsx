@@ -1,36 +1,37 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../checklist-view/checklist-css/checkListView.css";
-
 import {
-  // ClipboardList,
-  ListTodo,
-  // Flag,
   Activity,
   Pencil,
-  // Check,
-  // Plus,
-  // MoreHorizontal,
-  CircleDashed,
-  UserRound,
-  CalendarDays,
-  Flag,
-  MoreHorizontal,
   Plus,
   CircleDot,
+  UserRound,
+  CalendarDays,
+  Trash2,
 } from "lucide-react";
 
 function ChecklistBoards() {
-  const [tasks, setTasks] = useState([
-    {
-      heading: "Task Name",
-      priority: "Low",
-      status: "To-do",
-      statusColor: "black",
-      isEditing: false,
-      showPopup: false,
-    },
-  ]);
+  const [tasks, setTasks] = useState(() => {
+    // ✅ Load tasks from localStorage on first render
+    const saved = localStorage.getItem("tasks");
+    return saved
+      ? JSON.parse(saved)
+      : [
+          {
+            heading: "Task Name",
+            priority: "Low",
+            status: "To-do",
+            statusColor: "black",
+            isEditing: false,
+            showPopup: false,
+          },
+        ];
+  });
+
+  // ✅ Save tasks to localStorage every time they change
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   const getTaskCardColor = (priority) => {
     switch (priority) {
@@ -77,33 +78,37 @@ function ChecklistBoards() {
     { label: "Completed", color: "green" },
   ];
 
+  const handleDeleteTask = (index) => {
+    const updatedTasks = tasks.filter((_, i) => i !== index);
+    setTasks(updatedTasks);
+  };
+
+  const handleAddTask = () => {
+    setTasks([
+      ...tasks,
+      {
+        heading: "New Task",
+        priority: "Low",
+        status: "To-do",
+        statusColor: "black",
+        isEditing: false,
+        showPopup: false,
+      },
+    ]);
+  };
+
   return (
     <>
       <div className="add-task-bar">
-        <button
-          className="add-task-btn"
-          onClick={() =>
-            setTasks([
-              ...tasks,
-              {
-                heading: "New Task",
-                priority: "Low",
-                status: "To-do",
-                statusColor: "black",
-                isEditing: false,
-                showPopup: false,
-              },
-            ])
-          }
-        >
+        <button className="add-task-btn" onClick={handleAddTask}>
           + Add Task
         </button>
       </div>
+
       <div className="task-grid">
         {tasks.map((task, index) => (
           <div className="task-wrapper" key={index}>
             <div
-              key={index}
               className="todo-box"
               style={{ borderColor: getBorderColor(task.priority) }}
             >
@@ -118,6 +123,7 @@ function ChecklistBoards() {
                 >
                   <CircleDot size={20} color={task.statusColor} /> {task.status}
                 </div>
+
                 <div className="todo-header-right">
                   <Pencil
                     size={16}
@@ -126,8 +132,19 @@ function ChecklistBoards() {
                       updatedTasks[index].isEditing = true;
                       setTasks(updatedTasks);
                     }}
+                    style={{ cursor: "pointer", marginRight: "8px" }}
                   />
-                  <Plus size={16} />
+                  <Plus
+                    size={16}
+                    onClick={handleAddTask}
+                    style={{ cursor: "pointer", marginRight: "8px" }}
+                  />
+                  <Trash2
+                    size={16}
+                    color="black"
+                    onClick={() => handleDeleteTask(index)}
+                    style={{ cursor: "pointer" }}
+                  />
                 </div>
               </div>
 
@@ -176,7 +193,6 @@ function ChecklistBoards() {
                   <CalendarDays size={16} />
                   <div className="task-priority">
                     <Activity size={18} color={getColor(task.priority)} />
-
                     <select
                       value={task.priority}
                       onChange={(e) => {
@@ -195,35 +211,33 @@ function ChecklistBoards() {
               </div>
             </div>
 
-            <div>
-              {task.showPopup && (
-                <div className="popup-overlay">
-                  <div className="popup-box">
-                    <div className="popup-header-left">
-                      <div className="popup-box-heading">
-                        {statusOptions.map((option, idx) => (
-                          <div
-                            key={idx}
-                            className="popup-header-left"
-                            onClick={() => {
-                              const updatedTasks = [...tasks];
-                              updatedTasks[index].status = option.label;
-                              updatedTasks[index].statusColor = option.color;
-                              updatedTasks[index].showPopup = false;
-                              setTasks(updatedTasks);
-                            }}
-                            style={{ cursor: "pointer" }}
-                          >
-                            <CircleDot size={20} color={option.color} />
-                            <span className="popup-status">{option.label}</span>
-                          </div>
-                        ))}
-                      </div>
+            {task.showPopup && (
+              <div className="popup-overlay">
+                <div className="popup-box">
+                  <div className="popup-header-left">
+                    <div className="popup-box-heading">
+                      {statusOptions.map((option, idx) => (
+                        <div
+                          key={idx}
+                          className="popup-header-left"
+                          onClick={() => {
+                            const updatedTasks = [...tasks];
+                            updatedTasks[index].status = option.label;
+                            updatedTasks[index].statusColor = option.color;
+                            updatedTasks[index].showPopup = false;
+                            setTasks(updatedTasks);
+                          }}
+                          style={{ cursor: "pointer" }}
+                        >
+                          <CircleDot size={20} color={option.color} />
+                          <span className="popup-status">{option.label}</span>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
-              )}
-            </div>
+              </div>
+            )}
           </div>
         ))}
       </div>

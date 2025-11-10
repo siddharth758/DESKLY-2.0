@@ -5,7 +5,7 @@ import { Edit, Trash2, Share2, Heart, Bookmark } from "lucide-react";
 function FolderFiles() {
   const [activeTab, setActiveTab] = useState("All"); // default active
 
-  const filesData = {
+  const currentFiles = {
     All: ["Project 1", "Project 2", "College project", "Notes"],
     "My Docs": ["Project 1", "College project"],
     Favorite: ["Project 2"],

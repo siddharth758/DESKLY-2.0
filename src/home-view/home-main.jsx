@@ -11,11 +11,19 @@ import {
   Clock,
   File,
   Link,
+  CheckCircle2,
+  AlertTriangle,
+  CalendarDays,
+  PieChart,
+  Map,
+  MapPin,
+  Navigation,
+  FileCheck,
 } from "lucide-react";
 function HomeMain() {
   return (
     <>
-      <div>
+      <div className="homeSide">
         <div className="home-navbar-div">
           <div className="home-navbar-left">
             <ul>
@@ -46,9 +54,8 @@ function HomeMain() {
                 </div>
               </div>
               <ul>
-                <li></li>
-                <li></li>
-                <li></li>
+                <li>Maps Created</li>
+                <li>Task Added</li>
               </ul>
             </div>
             <div className="activity-feed-div">
@@ -60,47 +67,72 @@ function HomeMain() {
                   <Trash size={24} />
                 </div>
               </div>
-              <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-              </ul>
+              <ul></ul>
             </div>
           </div>
           <div className="favorites-partner">
             <HomeMainBox>
-              <div className="favorites-box-content">
-                <div className="favorites-box-heading">
-                  <div className="favorites-box-heading-h3">
-                    <h3>Favorites</h3>
+              <div className="maps-box-content">
+                <div className="maps-box-heading">
+                  <div className="maps-box-heading-h3">
+                    <h3>Maps</h3>
                   </div>
-                  <div className="favorites-box-heading-m">
+                  <div className="maps-box-heading-m">
                     <Maximize2 size={20} />
                     <Trash size={24} />
                   </div>
                 </div>
                 <ul>
-                  <li></li>
+                  <li>
+                    <Map className="icon created" />
+                    <span className="label">Maps Created</span>
+                    <span className="value">2</span>
+                  </li>
+                  <li>
+                    <Navigation className="icon active" />
+                    <span className="label">Active Maps</span>
+                    <span className="value">1</span>
+                  </li>
                 </ul>
               </div>
             </HomeMainBox>
-            <div className="projects-feed-div">
-              <div className="projects-feed">
-                <div className="projects-feed-h3">
-                  <h3>Project Feed</h3>
+            <div className="insights-feed-div">
+              <div className="insights-feed">
+                <div className="insights-feed-h3">
+                  <h3>Insights</h3>
                 </div>
-                <div className="projects-feed-options">
+
+                <div className="insights-feed-options">
                   <Maximize2 size={20} />
                   <Trash size={24} />
                 </div>
               </div>
               <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+                <li>
+                  <CheckCircle2 className="icon completed" />
+                  <span className="label">Completed Tasks</span>
+                  <span className="value">5</span>
+                </li>
+                <li>
+                  <Clock className="icon pending" />
+                  <span className="label">Pending Tasks</span>
+                  <span className="value">13</span>
+                </li>
+                <li>
+                  <AlertTriangle className="icon urgent" />
+                  <span className="label">Urgent Tasks</span>
+                  <span className="value">4</span>
+                </li>
+                <li>
+                  <CalendarDays className="icon upcoming" />
+                  <span className="label">Upcoming Events</span>
+                  <span className="value">3</span>
+                </li>
+                <li>
+                  <PieChart className="icon progress" />
+                  <span className="label">Task Completion</span>
+                  <span className="value">72%</span>
+                </li>
               </ul>
             </div>
           </div>
@@ -108,7 +140,7 @@ function HomeMain() {
             <div className="bookmark-box-content">
               <div className="bookmark-box-heading">
                 <div className="bookmark-box-heading-h3">
-                  <h3>Bookmark</h3>
+                  <h3>Forms</h3>
                 </div>
                 <div className="bookmark-box-heading-m">
                   <Maximize2 size={20} />
@@ -116,8 +148,16 @@ function HomeMain() {
                 </div>
               </div>
               <ul>
-                <li></li>
-                <li></li>
+                <li>
+                  <FileText className="icon upcoming" />
+                  <span className="label">Forms created</span>
+                  <span className="value">3</span>
+                </li>
+                <li>
+                  <FileCheck className="icon progress" />
+                  <span className="label">Active Forms</span>
+                  <span className="value">1</span>
+                </li>
               </ul>
             </div>
           </HomeMainBox>
