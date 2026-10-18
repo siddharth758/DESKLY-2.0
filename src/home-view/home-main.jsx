@@ -1,4 +1,5 @@
 import "../home-view/home-css/homemain.css";
+import { useTask } from "../Taskcontext";
 import HomeMainBox from "./home-main-boxes";
 import {
   Settings,
@@ -16,11 +17,24 @@ import {
   CalendarDays,
   PieChart,
   Map,
-  MapPin,
   Navigation,
   FileCheck,
 } from "lucide-react";
+
 function HomeMain() {
+  const { state } = useTask();
+  const tasks = state.tasks;
+
+  // LIVE TASK CALCULATIONS
+  const total = tasks.length;
+  const completed = tasks.filter((t) => t.status === "Completed").length;
+  const pending = tasks.filter((t) => t.status !== "Completed").length;
+  const urgent = tasks.filter((t) => t.priority === "Urgent").length;
+
+  // Task completion percentage
+  const completionPercent =
+    total === 0 ? 0 : Math.round((completed / total) * 100);
+
   return (
     <>
       <div className="homeSide">
@@ -42,7 +56,9 @@ function HomeMain() {
             </ul>
           </div>
         </div>
+
         <div className="home-boxes">
+          {/* RECENTS & ACTIVITY  */}
           <div className="recents-feed-main-div">
             <div className="recents-feed-div">
               <div className="recents-feed">
@@ -58,6 +74,7 @@ function HomeMain() {
                 <li>Task Added</li>
               </ul>
             </div>
+
             <div className="activity-feed-div">
               <div className="activity-feed">
                 <div>
@@ -70,6 +87,8 @@ function HomeMain() {
               <ul></ul>
             </div>
           </div>
+
+          {/* FAVORITES & INSIGHTS */}
           <div className="favorites-partner">
             <HomeMainBox>
               <div className="maps-box-content">
@@ -96,12 +115,13 @@ function HomeMain() {
                 </ul>
               </div>
             </HomeMainBox>
+
+            {/* INSIGHTS WITH DYNAMIC VALUES */}
             <div className="insights-feed-div">
               <div className="insights-feed">
                 <div className="insights-feed-h3">
                   <h3>Insights</h3>
                 </div>
-
                 <div className="insights-feed-options">
                   <Maximize2 size={20} />
                   <Trash size={24} />
@@ -111,17 +131,17 @@ function HomeMain() {
                 <li>
                   <CheckCircle2 className="icon completed" />
                   <span className="label">Completed Tasks</span>
-                  <span className="value">5</span>
+                  <span className="value">{completed}</span>
                 </li>
                 <li>
                   <Clock className="icon pending" />
                   <span className="label">Pending Tasks</span>
-                  <span className="value">13</span>
+                  <span className="value">{pending}</span>
                 </li>
                 <li>
                   <AlertTriangle className="icon urgent" />
                   <span className="label">Urgent Tasks</span>
-                  <span className="value">4</span>
+                  <span className="value">{urgent}</span>
                 </li>
                 <li>
                   <CalendarDays className="icon upcoming" />
@@ -131,11 +151,13 @@ function HomeMain() {
                 <li>
                   <PieChart className="icon progress" />
                   <span className="label">Task Completion</span>
-                  <span className="value">72%</span>
+                  <span className="value">{completionPercent}%</span>
                 </li>
               </ul>
             </div>
           </div>
+
+          {/* FORMS */}
           <HomeMainBox>
             <div className="bookmark-box-content">
               <div className="bookmark-box-heading">
@@ -161,6 +183,8 @@ function HomeMain() {
               </ul>
             </div>
           </HomeMainBox>
+
+          {/* QUICK ACTIONS & IMPORTANT LINKS */}
           <div className="recent-partner">
             <div className="recent-activity">
               <ul>
@@ -194,6 +218,7 @@ function HomeMain() {
                 </li>
               </ul>
             </div>
+
             <div className="Important-Links-div">
               <ul>
                 <div className="Important-Links">
@@ -203,7 +228,7 @@ function HomeMain() {
                 </div>
                 <li>Github</li>
                 <li>Linkedin</li>
-                <li>Twiter</li>
+                <li>Twitter</li>
                 <li>Social media</li>
               </ul>
             </div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../checklist-view/checklist-css/checkListView.css";
 import {
   Activity,
@@ -9,29 +9,11 @@ import {
   CalendarDays,
   Trash2,
 } from "lucide-react";
+import { useTask } from "../Taskcontext";
 
 function ChecklistBoards() {
-  const [tasks, setTasks] = useState(() => {
-    // ✅ Load tasks from localStorage on first render
-    const saved = localStorage.getItem("tasks");
-    return saved
-      ? JSON.parse(saved)
-      : [
-          {
-            heading: "Task Name",
-            priority: "Low",
-            status: "To-do",
-            statusColor: "black",
-            isEditing: false,
-            showPopup: false,
-          },
-        ];
-  });
-
-  // ✅ Save tasks to localStorage every time they change
-  useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-  }, [tasks]);
+  const { state, dispatch } = useTask();
+  const tasks = state.tasks;
 
   const getTaskCardColor = (priority) => {
     switch (priority) {
@@ -80,21 +62,24 @@ function ChecklistBoards() {
 
   const handleDeleteTask = (index) => {
     const updatedTasks = tasks.filter((_, i) => i !== index);
-    setTasks(updatedTasks);
+    dispatch({ type: "SET_TASKS", payload: updatedTasks });
   };
 
   const handleAddTask = () => {
-    setTasks([
-      ...tasks,
-      {
-        heading: "New Task",
-        priority: "Low",
-        status: "To-do",
-        statusColor: "black",
-        isEditing: false,
-        showPopup: false,
-      },
-    ]);
+    dispatch({
+      type: "SET_TASKS",
+      payload: [
+        ...tasks,
+        {
+          heading: "New Task",
+          priority: "Low",
+          status: "Task",
+          statusColor: "black",
+          isEditing: false,
+          showPopup: false,
+        },
+      ],
+    });
   };
 
   return (
@@ -116,9 +101,9 @@ function ChecklistBoards() {
                 <div
                   className="todo-header-left"
                   onClick={() => {
-                    const updatedTasks = [...tasks];
+                    const updatedTasks = JSON.parse(JSON.stringify(tasks));
                     updatedTasks[index].showPopup = true;
-                    setTasks(updatedTasks);
+                    dispatch({ type: "SET_TASKS", payload: updatedTasks });
                   }}
                 >
                   <CircleDot size={20} color={task.statusColor} /> {task.status}
@@ -128,9 +113,9 @@ function ChecklistBoards() {
                   <Pencil
                     size={16}
                     onClick={() => {
-                      const updatedTasks = [...tasks];
-                      updatedTasks[index].isEditing = true;
-                      setTasks(updatedTasks);
+                      const updated = [...tasks];
+                      updated[index].isEditing = true;
+                      dispatch({ type: "SET_TASKS", payload: updated });
                     }}
                     style={{ cursor: "pointer", marginRight: "8px" }}
                   />
@@ -157,20 +142,20 @@ function ChecklistBoards() {
                     type="text"
                     value={task.heading}
                     onChange={(e) => {
-                      const updatedTasks = [...tasks];
-                      updatedTasks[index].heading = e.target.value;
-                      setTasks(updatedTasks);
+                      const updated = [...tasks];
+                      updated[index].heading = e.target.value;
+                      dispatch({ type: "SET_TASKS", payload: updated });
                     }}
                     onBlur={() => {
-                      const updatedTasks = [...tasks];
-                      updatedTasks[index].isEditing = false;
-                      setTasks(updatedTasks);
+                      const updated = [...tasks];
+                      updated[index].isEditing = false;
+                      dispatch({ type: "SET_TASKS", payload: updated });
                     }}
                     onKeyDown={(e) => {
                       if (e.key === "Enter") {
-                        const updatedTasks = [...tasks];
-                        updatedTasks[index].isEditing = false;
-                        setTasks(updatedTasks);
+                        const updated = [...tasks];
+                        updated[index].isEditing = false;
+                        dispatch({ type: "SET_TASKS", payload: updated });
                       }
                     }}
                     autoFocus
@@ -196,9 +181,9 @@ function ChecklistBoards() {
                     <select
                       value={task.priority}
                       onChange={(e) => {
-                        const updatedTasks = [...tasks];
-                        updatedTasks[index].priority = e.target.value;
-                        setTasks(updatedTasks);
+                        const updated = [...tasks];
+                        updated[index].priority = e.target.value;
+                        dispatch({ type: "SET_TASKS", payload: updated });
                       }}
                       className="priority-select"
                     >
@@ -221,11 +206,11 @@ function ChecklistBoards() {
                           key={idx}
                           className="popup-header-left"
                           onClick={() => {
-                            const updatedTasks = [...tasks];
-                            updatedTasks[index].status = option.label;
-                            updatedTasks[index].statusColor = option.color;
-                            updatedTasks[index].showPopup = false;
-                            setTasks(updatedTasks);
+                            const updated = [...tasks];
+                            updated[index].status = option.label;
+                            updated[index].statusColor = option.color;
+                            updated[index].showPopup = false;
+                            dispatch({ type: "SET_TASKS", payload: updated });
                           }}
                           style={{ cursor: "pointer" }}
                         >

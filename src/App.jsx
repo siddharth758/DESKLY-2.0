@@ -1,4 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+import Lenis from "@studio-freight/lenis";
+
 import Landing from "./pages/landing";
 import SignupPage from "./pages/SignUpPage";
 import MainPage from "./pages/main-page";
@@ -15,10 +18,26 @@ import Kanban from "./management-view/management-map/Kanban";
 import RiskMatrix from "./management-view/management-map/RiskMatrix";
 import EisenhowerMatrix from "./management-view/management-map/EisenhowerMatrix";
 import FlowChart from "./management-view/management-map/FLowChart";
-// import HomeSection from "./home-view/home-section/homeSection";
+
 import "./css/App.css";
 
 function App() {
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (x) => 1 - Math.pow(1 - x, 3),
+      smooth: true,
+      smoothTouch: true,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  }, []);
+
   return (
     <Router>
       <Routes>
